@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('./background/codewithai.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper{
+    position: relative;
+    height: 500px;
+    width: 400px;
+    background: rgba(255, 255, 255, .2);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, -1);
+}
+
+.form-wrapper{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    transition: 1s ease-in-out;
+}
+
+.wrapper.active .form-wrapper.signin{
+    transform: scale(0) translate(-300px, 500px);
+}
+
+.wrapper .form-wrapper.signup{
+    position: absolute;
+    top: 0;
+    transform: scale(0) translate(200px, -500px);
+}
+
+.wrapper.active .form-wrapper.signup{
+    transform: scale(1) translate(0,0);
+}
+
+h2{
+    font-size: 30px;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.input-group{
+    position: relative;
+    margin: 30px 0;
+    border-bottom: 2px solid white;
+}
+
+.input-group label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: whitesmoke;
+    pointer-events: none;
+    transition: .5s;
+} 
+
+.input-group input{
+    width: 320px;
+    height: 40px;
+    outline: none;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 0 5px;
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label{
+    top: -5px;
+    font-size: 14px;
+}
+
+.remember{
+    margin: -5px 0 15px 5px;
+}
+
+.remember label{
+    color: whitesmoke;
+    font-size: 14px;
+}
+
+.remember label input{
+    accent-color: red;
+}
+
+button{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    border-radius: 18px;
+    background-color: rgba(51, 255, 0, 0.728);
+    color: whitesmoke;
+    font-size: 18px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.signup-link{
+    text-align: center;
+    margin: 15px 0;
+    font-size: 16px;
+}
+
+.signup-link p{
+    color: whitesmoke;
+}
+
+.signup-link p a{
+    text-decoration: none;
+    font-weight: 500;
+    color: rgba(51, 255, 0, 0.983);
+}
+
+.signup-link p a:hover{
+    text-decoration: underline;
+}
+
+.social-accounts{
+    text-align: center;
+    color: whitesmoke;
+    font-size: 16px;
+}
+
+.social-accounts a{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background: transparent;
+    border: 2px solid whitesmoke;
+    align-items: center;
+    line-height: 30px;
+    border-radius: 50%;
+    margin: 10px 6px 0;
+    color: whitesmoke;
+}
+
+.social-icons a:hover{
+    background-color: whitesmoke;
+}
+
+.social-icons a i{
+    color: rgba(6, 249, 18, 0.679);
+    transition: .3s;
+}
+
+.social-icons a i:hover{
+    color: rgb(6, 249, 18);
+    transition: .3s;
+}
+
+.signin-link{
+    text-align: center;
+    margin: 15px 0;
+    font-size: 16px;
+}
+
+.signin-link p{
+    color: whitesmoke;
+}
+
+.signin-link p a{
+    text-decoration: none;
+    font-weight: 500;
+    color: rgba(51, 255, 0, 0.983);
+}
+
+.signin-link p a:hover{
+    text-decoration: underline;
+}
+
+@media (max-width: 360px) {
+    .form-wrapper{
+        width: 100%;
+        height: 100vh;
+        border: none;
+        border-radius: 0;
+    }
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-firestore.js"></script>
+    <title>CherryCode</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form-wrapper signin">
+            <form action="" id="formsignin">
+                <h2>Sign In</h2>
+                <div class="input-group">
+                    <input type="text" id="emailsignin" required>
+                    <label for="">Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="passwordsignin" required>
+                    <label for="">Password</label>
+                </div>
+                <div class="remember">
+                    <label for=""><input type="checkbox" required> Remember me</label>
+                </div>
+                <button type="submit" id="signin">Login</button>
+                <div class="signup-link">
+                    <p>Don't have an account ? <a href="#">sign up</a></p>
+                </div>
+                <div class="social-accounts">
+                    <p>Or sign in with</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-google"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="form-wrapper signup">
+            <form action="" id="formsignup">
+                <h2>Sign Up</h2>
+                <div class="input-group">
+                    <input type="text" id="username" required>
+                    <label for="">Username</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" required>
+                    <label for="">Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" required>
+                    <label for="">Password</label>
+                </div>
+                <div class="remember">
+                    <label for=""><input type="checkbox" required> I agree to the terms & conditions</label>
+                </div>
+                <button type="submit" id="signup" value="sign up">Register</button>
+                <div class="signin-link">
+                    <p>Already have an account ? <a href="#">sign in</a></p>
+                </div>
+            </form>
+        </div>
+        <script type="module" src="jsscript.js"></script>
+    </div>
+</body>
+
+    <!-- // // Import the functions you need from the SDKs you need
+    // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    // import { getDatabase , set , ref , update } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+    // import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    // // TODO: Add SDKs for Firebase products that you want to use
+    // // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // // Your web app's Firebase configuration
+    // const firebaseConfig = {
+    //   apiKey: "AIzaSyBduN6XPKqN97gwG9XVTWXeuGaW1VmsGHw",
+    //   authDomain: "cherrycode-login.firebaseapp.com",
+    //   databaseURL: "https://cherrycode-login-default-rtdb.firebaseio.com",
+    //   projectId: "cherrycode-login",
+    //   storageBucket: "cherrycode-login.appspot.com",
+    //   messagingSenderId: "279596299425",
+    //   appId: "1:279596299425:web:ba762511d1a536e5822ce0"
+    // };
+  
+    // // Initialize Firebase
+    // const app = initializeApp(firebaseConfig);
+    // const database = getDatabase(app);
+    // const auth = getAuth();
+
+    // signup.addEventListener('click', (e) => {
+
+    //     var username = document.getElementById('username').value;
+    //     var email = document.getElementById('email').value;
+    //     var password = document.getElementById('password').value;
+
+    //     createUserWithEmailAndPassword(auth, email, password)
+    //         .then((userCredential) => {
+    //         // Signed in 
+    //         const user = userCredential.user;
+    //         set(ref(database, 'users/' + user.uid),{
+    //             username : username,
+    //             email : email,
+    //             password : password
+    //         })
+    //         document.getElementById("formsignup").reset();
+    //         wrapper.classList.toggle('active');
+    //         alert('Account registered successfully!');
+    //         // ...
+    //     })
+    //     .catch((error) => {
+    //         const errorCode = error.code;
+    //         const errorMessage = error.message;
+    //         if (error.code === "auth/email-already-in-use") {
+    //             // Handle email already in use error
+    //             alert("This email is already registered");
+    //         } else { 
+    //             alert('errorMessage');
+    //         }
+    //         // ..
+    //     });
+    // })
+
+    // signin.addEventListener('click', (e)=>{
+    
+    // var email = document.getElementById('emailsignin').value;
+    // var password = document.getElementById('passwordsignin').value;
+
+    // const auth = getAuth();
+    //     signInWithEmailAndPassword(auth, email, password)
+    //     .then((userCredential) => {
+    //         // Signed in 
+    //         const user = userCredential.user;
+    //         const dt = new Date();
+    //         update(ref(database, 'users/' + user.uid),{
+    //             last_login : dt,
+    //         })
+    //         document.getElementById("formsignin").reset();
+    //         window.location.replace('cherrycode.html');
+    //         alert('Log in successful!');
+    //         // ...
+    //     })
+    //     .catch((error) => {
+    //         const errorCode = error.code;
+    //         const errorMessage = error.message;
+    //         if (error.code === "auth/user-not-found") {
+    //             // Handle user not found error
+    //             alert("This email is not registered");
+    //         } else if (error.code === "auth/wrong-password") {
+    //             // Handle wrong password error
+    //             alert("Incorrect password");
+    //         } else {
+    //             alert('errorMessage');
+    //         }
+    //     });
+    // }) -->
+</html>
